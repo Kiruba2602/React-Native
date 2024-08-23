@@ -1,9 +1,10 @@
 import * as React from "react";
-import { SafeAreaView, ScrollView, Text, StyleSheet, Image, View } from "react-native";
+import { ScrollView, Text, StyleSheet, Image, View, Pressable } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
         <Image
           style={styles.logo}
@@ -12,7 +13,7 @@ export default function WelcomeScreen() {
           accessibilityLabel="Little Lemon Logo"
         />
       </View>
-      <ScrollView>
+      <ScrollView style={styles.scrollContainer}>
         <Text style={styles.title}>LittleLemon, your local Mediterranean Bistro</Text>
         <Image
           style={styles.image}
@@ -50,21 +51,26 @@ export default function WelcomeScreen() {
           accessible={true}
           accessibilityLabel="Food Picture 6"
         />
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Menu')}>
+          <Text style={styles.buttonText}>Go To Menu</Text>
+        </Pressable>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
-    marginTop: 25,
     backgroundColor: "#ffffff",
   },
   innerContainer: {
     backgroundColor: "#ecefee",
     paddingHorizontal: 10,
+  },
+  scrollContainer: {
+    flex: 1,
+    paddingHorizontal: 24,
   },
   title: {
     marginTop: 10,
@@ -86,5 +92,20 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     borderRadius: 10,
     margin: 6,
+  },
+  button: {
+    fontSize: 18,
+    padding: 5,
+    marginVertical: 6,
+    margin: 85,
+    backgroundColor: "#F4CE14",
+    borderColor: "#EDEFEE",
+    borderWidth: 2,
+    borderRadius: 12,
+  },
+  buttonText: {
+    color: "#333333",
+    textAlign: "center",
+    fontSize: 24,
   },
 });

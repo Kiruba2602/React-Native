@@ -1,22 +1,25 @@
-import * as React from 'react';
-import { View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import LittleLemonHeader from './components/LittleLemonHeader';
-import LittleLemonFooter from './components/LittleLemonFooter';
-import MenuItems from './components/SectionList';
-import LoginPage from './components/LoginPage';
-import FeedbackPage from './components/FeedbackPage';
-import WelcomeScreen from './components/WelcomeScreen';
+import MenuItems from "./components/SectionList";
+import LoginPage from "./components/LoginPage";
+import FeedbackPage from "./components/FeedbackPage";
+import WelcomeScreen from "./components/WelcomeScreen";
+import Settings from "./components/SettingsPage";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <View style={{ flex: 1, backgroundColor: '#495E57' }}>
-        <WelcomeScreen />
-      </View>
-      <View style={{ backgroundColor: '#495E57' }}>
-        <LittleLemonFooter />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Drawer.Navigator useLegacyImplementation>
+        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+        <Drawer.Screen name="Menu" component={MenuItems} />
+        <Drawer.Screen name="Settings" component={Settings} />
+        <Drawer.Screen name="Feedback" component={FeedbackPage} />
+        <Drawer.Screen name="Logout" component={LoginPage} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }

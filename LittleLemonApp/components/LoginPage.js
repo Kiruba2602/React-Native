@@ -1,52 +1,41 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Pressable, ImageBackground } from "react-native";
+import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 
-const LoginPage = () => {
+const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showLogin, setShowLogin] = useState(false);
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        style={styles.bgImg}
-        resizeMode="contain"
-        source={require("../assets/android-chrome-512x512.png")}
-      >
-        <View style={styles.innerContainer}>
-          <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-          {showLogin && <Text style={styles.regularText}>You're logged in!</Text>}
-          {!showLogin && (
-            <>
-              <Text style={styles.regularText}>Login to continue</Text>
-              <TextInput
-                style={styles.inputBox}
-                value={email}
-                onChangeText={setEmail}
-                placeholder={"Enter your email"}
-                keyboardType={"email-address"}
-                clearButtonMode={"while-editing"}
-              />
-              <TextInput
-                style={styles.inputBox}
-                value={password}
-                onChangeText={setPassword}
-                placeholder={"Enter your password"}
-                keyboardType={"default"}
-                secureTextEntry={true}
-              />
-              <Pressable
-                style={styles.button}
-                onPress={() => {
-                  setShowLogin(!showLogin);
-                }}
-              >
-                <Text style={styles.buttonText}>Login</Text>
-              </Pressable>
-            </>
-          )}
-        </View>
-      </ImageBackground>
+      <View style={styles.innerContainer}>
+        <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+        <Text style={styles.regularText}>Login to continue</Text>
+        <TextInput
+          style={styles.inputBox}
+          value={email}
+          onChangeText={setEmail}
+          placeholder={"Enter your email"}
+          keyboardType={"email-address"}
+          clearButtonMode={"while-editing"}
+        />
+        <TextInput
+          style={styles.inputBox}
+          value={password}
+          onChangeText={setPassword}
+          placeholder={"Enter your password"}
+          keyboardType={"default"}
+          secureTextEntry={true}
+        />
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("Welcome");
+          }}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -87,7 +76,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginVertical: 10,
     margin: 130,
-    backgroundColor: "#EDEFEE",
+    backgroundColor: "#F4CE14",
     borderColor: "#EDEFEE",
     borderWidth: 2,
     borderRadius: 30,
