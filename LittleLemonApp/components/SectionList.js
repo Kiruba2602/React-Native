@@ -100,9 +100,10 @@ const menuStyles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    flex: 0.1,
+    flex: 0.2,
     backgroundColor: "#495E57",
     paddingVertical: 10,
+    paddingHorizontal: 20,
   },
   headerText: {
     fontSize: 36,
@@ -118,7 +119,7 @@ const menuStyles = StyleSheet.create({
   },
   infoSection: {
     fontSize: 24,
-    padding: 10,
+    padding: 20,
     marginBottom: 8,
     color: "#EDEFEE",
     textAlign: "center",
@@ -143,7 +144,7 @@ const menuStyles = StyleSheet.create({
     fontSize: 18,
     padding: 5,
     marginVertical: 8,
-    margin: 80,
+    margin: 120,
     backgroundColor: "#F4CE14",
     borderColor: "#EDEFEE",
     borderWidth: 2,
@@ -152,7 +153,7 @@ const menuStyles = StyleSheet.create({
   buttonText: {
     color: "#333333",
     textAlign: "center",
-    fontSize: 32,
+    fontSize: 24,
   },
 });
 

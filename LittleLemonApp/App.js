@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator useLegacyImplementation>
+      <Drawer.Navigator initialRouteName="Welcome">
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Menu" component={MenuItems} />
         <Drawer.Screen name="Settings" component={Settings} />

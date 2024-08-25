@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function WelcomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.innerContainer}>
         <Image
           style={styles.logo}
@@ -55,7 +55,7 @@ export default function WelcomeScreen({ navigation }) {
           <Text style={styles.buttonText}>Go To Menu</Text>
         </Pressable>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
